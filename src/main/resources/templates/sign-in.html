@@ -32,7 +32,7 @@
 			</div>
 			<br/>
 			<div class="form-group">
-				<button type="button" class="el-button el-button--primary" id="login"><span>登录</span></button>
+				<button type="button" class="el-button el-button--primary" onclick="login()"><span>登录</span></button>
 			</div>
 		</form>		
 	</div>
@@ -54,29 +54,16 @@
 	
 		
     $(function(){
-    	  
+        /**
+         * 绑定按钮回车事件
+         */
+    	$(document).keydown(function(event) {
+    		if (event.keyCode == 13) {
+    			login();
+    		}
+    	});    	
+        
     	formValidator();
-        $("#login").on("click",function(){
-	   		 if(!$('#loginForm').data('bootstrapValidator').isValid()){  
-				 $('#loginForm').data('bootstrapValidator').validate();  //手动开启验证
-			} else {//验证通过
-				console.log('验证通过');
-            	qxAjaxFormSubmitPost("doLogin",$("form").serialize(),function(data){
-            		if(data == 'success'){
-            			window.location = 'index';
-            		}else{
-	   	    	    	 layer.msg(data, {
-		    	    		  icon: 2,
-		    	    		  time: 2500 //2秒关闭（如果不配置，默认是3秒）
-		    	    		}, function(){//do something
-		    	    	 });           			
-            		}
-            	},function(){
-            		
-            	});			
-			}
-
-        })
     })
 
     /**
@@ -98,38 +85,32 @@
                             message: '用户名不能为空'
                         }
                     }
-                },
-                password: {
-                    message: '密码无效',
-                    validators: {
-                        notEmpty: {
-                            message: '密码不能为空'
-                        }
-                    }
-                },                
+                }              
             }    
 		});
-	}	
+	}	       
 
     
-    //post提交表单
-    function qxAjaxFormSubmitPost(url, param, sucCallBack, errCallBack) {
-    		$.ajax({
-    			type : "post",
-    			url : url,
-    			cache : false,
-    			timeout : 30000,
-    			data : param,
-    			success :function(data){
-    				sucCallBack(data);
-    			} ,
-    			error : errCallBack,
-    			complete:function(XMLHttpRequest){
-    				
-    			},
-    		});
-    }       
-
+    function login(){
+   		if(!$('#loginForm').data('bootstrapValidator').isValid()){  
+			 $('#loginForm').data('bootstrapValidator').validate();  //手动开启验证
+		} else {//验证通过
+			console.log('验证通过');
+	       	qxAjaxFormSubmitPost("doLogin","post",$("form").serialize(),function(data){
+	       		if(data == 'success'){
+	       			window.location = 'index';
+	       		}else{
+	  	    	    	 layer.msg(data, {
+		    	    		  icon: 2,
+		    	    		  time: 2500 //2秒关闭（如果不配置，默认是3秒）
+		    	    		}, function(){//do something
+		    	    	 });           			
+	       		}
+	       	},function(){
+	       		
+	       	});			
+		}    	
+    }
 </script>
   
 </body>
