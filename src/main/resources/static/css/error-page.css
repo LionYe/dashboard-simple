@@ -1,0 +1,65 @@
+.harbor-content {
+	margin: 24px 24px 0px;
+	padding-top: 0px;
+}
+
+.harbor {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	float: right;
+	height: 360px;
+	max-width: 430px;
+	width: 100%;
+}
+
+.harbor-index-content h1 {
+	color: #434e59;
+	font-size: 72px;
+	font-weight: 600;
+	line-height: 72px;
+	margin-bottom: 24px;
+}
+
+.harbor-index-desc {
+	color: rgba(0, 0, 0, .45);
+	font-size: 20px;
+	line-height: 28px;
+	margin-bottom: 16px;
+}
+
+.harbor-index-exception {
+	align-items: center;
+	display: flex;
+	height: 80%;
+	min-height: 500px;
+}
+
+.harbor-index-imgBlock {
+	flex: 0 0 62.5%;
+	padding-right: 152px;
+	width: 62.5%;
+	zoom: 1;
+}
+
+.harbor-btn{
+	display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}

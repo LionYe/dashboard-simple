@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css"  th:href="@{/css/error-page.css}">
+<head th:include="layout :: htmlhead"  th:with=" title='error-pretops'">
+</head>
+<body>
+	<div class="harbor-content">
+		<div class="harbor-index-exception">
+			<div class="harbor-index-imgBlock">
+				<div class="harbor-index-imgEle">
+					<img class="harbor" th:src="@{/images/500.svg}"/>
+				</div>
+			</div>
+			<div class="harbor-index-content">
+				<h1>500</h1>
+				<div class="harbor-index-desc">抱歉，服务器出错了</div>
+				<div>
+					<a th:href="@{/goLogin}">
+						<button type="button" class="harbor-btn">
+							<span>返回首页</span>
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
